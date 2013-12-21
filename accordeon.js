@@ -15,24 +15,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var idNextElement = el.nextElementSibling.id,
         textTitle = el.innerHTML,
-        linkTitle = '<a href="#'+idNextElement+'">'+textTitle+'</a>';
+        linkTitle = '<a aria-expanded="false" aria-controls="'+idNextElement+'" href="#'+idNextElement+'">'+textTitle+'</a>';
 
     el.innerHTML = linkTitle;
 
-    setAttributes(el.nextElementSibling, {
-      'aria-expanded':'false',
-      'aria-controls':idNextElement
-    });
-
     el.addEventListener('click', function(e) {
       e.preventDefault();
-      nextElement = this.nextElementSibling;
-      if(nextElement.getAttribute('aria-expanded') == 'false') {
+      var link = this.querySelector('a'),
+          nextElement = this.nextElementSibling;
+
+      if(link.getAttribute('aria-expanded') == 'false') {
         nextElement.style.display = "block";
-        nextElement.setAttribute('aria-expanded','true');  
+        link.setAttribute('aria-expanded','true');  
       }else {
         nextElement.style.display = "none";
-        nextElement.setAttribute('aria-expanded','false');  
+        link.setAttribute('aria-expanded','false');  
       }
       
     })
