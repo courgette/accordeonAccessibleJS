@@ -1,0 +1,32 @@
+h2 {
+  background: #34495e;
+  color: #FFF;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+h2 a {
+  color: #FFF;
+  display: block;
+  padding: 1em;
+  text-decoration: none;
+}
+
+h2 a:hover, h2 a:focus {
+  background: #FFF;
+  color: #34495E;
+}
+
+.panel {
+  border:1px solid #34495e;
+  padding: 1em;
+  display: none;
+}
+
+.no-js .panel {
+  display: block;
+}
+
+.no-js h2{
+  padding: 1em;
+}
